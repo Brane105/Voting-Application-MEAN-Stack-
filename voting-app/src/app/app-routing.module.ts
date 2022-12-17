@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminpageComponent } from './adminpage/adminpage.component';
+import { AuthGuard } from './gaurd/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
@@ -11,12 +12,10 @@ const routes: Routes = [
   {path : "",redirectTo : "/login",pathMatch : 'full'},
   {path : "login",component: LoginComponent},
   {path : "register",component: RegisterComponent},
-  {path : "main",component: MainComponent ,children : [
-    {path : "adminpage",component: AdminpageComponent},
-    {path : "userpage",component: UserpageComponent},
-  ]},
+  {path : "main",component: MainComponent,canActivate :[AuthGuard]},
+  {path : "adminpage",component: AdminpageComponent,canActivate :[AuthGuard]},
+  {path : "userpage",component: UserpageComponent,canActivate :[AuthGuard]},
   {path : '**',component : PageNotfoundComponent}
-
 ];
 
 @NgModule({

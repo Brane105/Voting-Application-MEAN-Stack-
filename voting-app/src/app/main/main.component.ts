@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  value: any;
 
-  constructor() { }
+  constructor() { 
+    this.value = sessionStorage.getItem('token')
+  }
 
   ngOnInit(): void {
   }

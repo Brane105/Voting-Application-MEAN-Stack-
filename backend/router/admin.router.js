@@ -5,5 +5,5 @@ const AdminController = require("../controller/admin.controller.js");
 //reouters 
 
 //Admin router 
-router.get('/',AdminController.getAdminDetails)
+router.get('/admin',AdminController.getAdminDetails)
 module.exports = router;

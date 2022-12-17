@@ -4,6 +4,7 @@ let getAdminDetails = (req,res)=>{
         if (err) {
         res.send(err);
         }
+        console.log(result);
         res.json(result);
         });
 }
