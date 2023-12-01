@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const app = express();
 mongoose.Promise = global.Promise;
 mongoose.set('strictQuery', false);
-const url = 'mongodb://localhost:27017/voting';
+const url = 'mongodb://127.0.0.1:27017/voting';
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.urlencoded({extended:true}));//enables body part data
 app.use(bodyParser.json());//json data
@@ -39,4 +40,4 @@ app.use('/', userRouter);
 const voteRouter = require('./router/vote.router.js');
 app.use('/polls', voteRouter);
 //listen port 
-app.listen(8080,()=> console.log('Listing on port 8080'));
+app.listen(port,()=> console.log('Listing on port 8080'));
